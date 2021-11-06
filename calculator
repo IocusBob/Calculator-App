@@ -1,0 +1,33 @@
+operations = ["+", "-", "*", "/"]
+total = 0
+while True:
+        try:
+            total = int(input("number: "))
+            break
+        except:
+            print("Please input numbers only!")
+while True:
+    if input("type STOP to stop").lower() == "stop":
+        break
+    operator = input("Operator: ")
+    while operator not in operations:
+        operator = input("Please Choose a Valid Operator: ")
+    while True:
+        try:
+            number = int(input("number: "))
+            break
+        except:
+            print("Please input numbers only!")
+    if operator == "+":
+        print("ADDING")
+        total += number
+    elif operator == "-":
+        print("TAKINg")
+        total -= number
+    elif operator == "*":
+        print("TIMSING")
+        total *= number
+    else:
+        print("DIVIDING")
+        total /= number
+print(total)
