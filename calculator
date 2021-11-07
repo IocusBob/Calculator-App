@@ -1,33 +1,39 @@
 operations = ["+", "-", "*", "/"]
-total = 0
+flag = True
+
+# Set the total variable
 while True:
         try:
             total = int(input("number: "))
             break
         except:
             print("Please input numbers only!")
-while True:
-    if input("type STOP to stop").lower() == "stop":
-        break
+
+# Keep adding to the sum until user requests a stop
+while flag:
+
     operator = input("Operator: ")
     while operator not in operations:
-        operator = input("Please Choose a Valid Operator: ")
-    while True:
+        operator = input("Please Choose a Valid Operator! Type STOP to stop: ").lower()
+        if operator == "stop":
+            flag = False
+            break
+    while flag:
         try:
             number = int(input("number: "))
             break
         except:
-            print("Please input numbers only!")
-    if operator == "+":
-        print("ADDING")
-        total += number
-    elif operator == "-":
-        print("TAKINg")
-        total -= number
-    elif operator == "*":
-        print("TIMSING")
-        total *= number
-    else:
-        print("DIVIDING")
-        total /= number
+            if input("Please input numbers only! Type STOP if you are finished ").lower() == "stop":
+                flag = False
+                break
+
+    if flag:
+        if operator == "+":
+            total += number
+        elif operator == "-":
+            total -= number
+        elif operator == "*":
+            total *= number
+        else:
+            total /= number
 print(total)
